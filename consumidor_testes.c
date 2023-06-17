@@ -1,0 +1,140 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "consumidor.h"
+
+int main(void) {
+    Lista_consumidor* lst = cria_lista_consumidor();
+
+    InfoConsumidor consumidor1;
+    strcpy(consumidor1.nome,"Gustavo");
+    strcpy(consumidor1.sobrenome,"Arcary Passos");
+    strcpy(consumidor1.celular,"98393-3317");
+    strcpy(consumidor1.endereco,"Rua Cosme Velho");
+
+    printf("\nTestando funcao valida cpf:\n\n");
+    int resultado = valida_cpf("192-993-317-74");
+    if (resultado == SUCESS_CPF) {
+        printf("Retorno SUCESS_CPF OK.\n");
+    } else {
+        printf("Retorno SUCESS_CPF NOT OK.\n");
+    }
+    resultado = valida_cpf("192-993-317-7b");
+    if (resultado == ERROR_INVALIDOCPF) {
+        printf("Retorno ERROR_INVALIDOCPF OK.\n");
+    } else {
+        printf("Retorno ERROR_INVALIDOCPF NOT OK.\n");
+    }
+    printf("\nFim dos testes da funcao valida cpf.\n");
+
+    printf("\nTestando funcao inclui consumidor:\n\n");
+    resultado =  incluirConsumidor(lst, "192-993-317-74", consumidor1);
+    if (resultado == SUCESS_INCLUI) {
+        printf("Retorno SUCESS_INCLUI OK.\n");
+    } else {
+        printf("Retorno SUCESS_INCLUI NOT OK.\n");
+    }
+    resultado = incluirConsumidor(lst, "192-993-317-74", consumidor1);
+    if (resultado == ERROR_ITEMJAEXISTE) {
+        printf("Retorno ERROR_ITEMJAEXISTE OK.\n");
+    } else {
+        printf("Retorno ERROR_ITEMJAEXISTE NOT OK.\n");
+    }
+    resultado = incluirConsumidor(lst, "192-993-317-788", consumidor1);
+    if (resultado == ERROR_INVALIDOCPF) {
+        printf("Retorno ERROR_INVALIDOCPF OK.\n");
+    } else {
+        printf("Retorno ERROR_INVALIDOCPF NOT OK.\n");
+    }
+    printf("\nFim dos testes da funcao inclui consumidor.\n");
+
+    printf("\nTestando funcao busca e exibe dados do consumidor:\n\n");
+    resultado = buscarConsumidorExibe("192-993-317-74", lst);
+    if (resultado == SUCESS_ENCONTRADO) {
+        printf("Retorno SUCESS_ENCONTRADO OK.\n");
+    } else {
+        printf("Retorno SUCESS_ENCONTRADO NOT OK.\n");
+    }
+    resultado = buscarConsumidorExibe("192-993-317-78", lst);
+    if (resultado == ERROR_NAOENCONTRADO) {
+        printf("Retorno ERROR_NAOENCONTRADO OK.\n");
+    } else {
+        printf("Retorno ERROR_NAOENCONTRADO NOT OK.\n");
+    }
+    Lista_consumidor* lst_nova = cria_lista_consumidor();
+    resultado = buscarConsumidorExibe("192-993-317-74", lst_nova);
+    if (resultado == ERROR_LISTAVAZIA) {
+        printf("Retorno ERROR_LISTAVAZIA OK.\n");
+    } else {
+        printf("Retorno ERROR_LISTAVAZIA NOT OK.\n");
+    }
+    resultado = buscarConsumidorExibe("192-993-3c7-74", lst);
+    if (resultado == ERROR_INVALIDOCPF) {
+        printf("Retorno ERROR_INVALIDOCPF OK.\n");
+    } else {
+        printf("Retorno ERROR_INVALIDOCPF NOT OK.\n");
+    }
+    printf("\nFim dos testes da funcao busca e exibe dados do jogo.\n");
+    
+    printf("\nTestando funcao atualiza dados do jogo:\n\n");
+    InfoConsumidor consumidor2;
+    strcpy(consumidor2.nome,"Gustavo");
+    strcpy(consumidor2.sobrenome,"Arcary Passos");
+    strcpy(consumidor2.celular,"98393-3317");
+    strcpy(consumidor2.endereco,"Rua Cosme Velho, 415");
+    resultado = atualizacaoConsumidor("192-993-317-74", lst, consumidor2);
+    buscarConsumidorExibe("192-993-317-74", lst);
+    if (resultado == SUCESS_ATUALIZA) {
+        printf("Retorno SUCESS_ATUALIZA OK.\n");
+    } else {
+        printf("Retorno SUCESS_ATUALIZA NOT OK.\n");
+    }
+    resultado = atualizacaoConsumidor("192-993-317-74", lst_nova, consumidor2);
+    if (resultado == ERROR_LISTAVAZIA) {
+        printf("Retorno ERROR_LISTAVAZIA OK.\n");
+    } else {
+        printf("Retorno ERROR_LISTAVAZIA NOT OK.\n");
+    }
+    resultado = atualizacaoConsumidor("192-983-317-74", lst, consumidor2);
+    if (resultado == ERROR_NAOENCONTRADO) {
+        printf("Retorno ERROR_NAOENCONTRADO OK.\n");
+    } else {
+        printf("Retorno ERROR_NAOENCONTRADO NOT OK.\n");
+    }
+    resultado = atualizacaoConsumidor("192-9g3-317-74", lst, consumidor2);
+    if (resultado == ERROR_INVALIDOCPF) {
+        printf("Retorno ERROR_INVALIDOCPF OK.\n");
+    } else {
+        printf("Retorno ERROR_INVALIDOCPF NOT OK.\n");
+    }
+    printf("\nFim dos testes da funcao atualiza dados do jogo.\n");
+    
+    printf("\nTestando funcao deleta dados do consumidor:\n\n");
+    resultado = excluirConsumidor("192-983-317-74", lst_nova);
+    if (resultado == ERROR_LISTAVAZIA) {
+        printf("Retorno ERROR_LISTAVAZIA OK.\n");
+    } else {
+        printf("Retorno ERROR_LISTAVAZIA NOT OK.\n");
+    }
+    resultado = excluirConsumidor("192-983-317-73", lst);
+    if (resultado == ERROR_NAOENCONTRADO) {
+        printf("Retorno ERROR_NAOENCONTRADO OK.\n");
+    } else {
+        printf("Retorno ERROR_NAOENCONTRADO NOT OK.\n");
+    }
+    resultado = excluirConsumidor("192-993-317-74", lst);
+    if (resultado == SUCESS_DELETE) {
+        printf("Retorno SUCESS_DELETE OK.\n");
+    } else {
+        printf("Retorno SUCESS_DELETE NOT OK.\n");
+    }
+    resultado = excluirConsumidor("192-9g3-317-74", lst);
+    if (resultado == ERROR_INVALIDOCPF) {
+        printf("Retorno ERROR_INVALIDOCPF OK.\n");
+    } else {
+        printf("Retorno ERROR_INVALIDOCPF NOT OK.\n");
+    }
+    printf("\nFim dos testes da funcao deleta dados do consumidor.\n");
+
+    return 0;   
+}
