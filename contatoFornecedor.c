@@ -1,24 +1,32 @@
 #include "consumidor.h"
-#include "xml.h"
+//#include "xml.h"
 
-int enviaJogo(char nome_jogo[50]){
+int enviaJogo(char nome_jogo[50], char nome_arq[55]){
     // envia a solicitação em XML para o fornecedor
     int enviar;
 
-    enviar = gravarXMLJogo(nome_jogo);
+    enviar = gravaXMLJogo(nome_jogo, nome_arq);
 
     if(enviar == 0){
         return SUCESS;
     } 
-    else{
-        // tratar casos de erro
-    }
+    else if(enviar == -1){
+        return ERROR_ARQUIVONENCONTRADO;
+    } 
 }
 
 int recebeJogo(char nome_arq[55]){
-    // recebe o preço do jogo
+    int preco;
+    // como vou pegar o nome do jogo?
+    char* nomeJogo;
 
-    // chama a funcao da locadora de comprar jogo do modulo locadora
+    preco = leXMLJogo(nome_arq);
 
+    if(preco < 0){
+        return ERROR_LEITURA;
+    } else {
+        compraJogo(nomeJogo, preco);
+        return SUCESS;
+    }
 }
 
