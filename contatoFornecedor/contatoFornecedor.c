@@ -1,4 +1,4 @@
-#include "consumidor.h"
+#include "contatoFornecedor.h"
 //#include "xml.h"
 
 int enviaJogo(char nome_jogo[50], char nome_arq[55]){
@@ -16,11 +16,14 @@ int enviaJogo(char nome_jogo[50], char nome_arq[55]){
 }
 
 int recebeJogo(char nome_arq[55]){
+    char* leitura;
     int preco;
-    // como vou pegar o nome do jogo?
     char* nomeJogo;
 
-    preco = leXMLJogo(nome_arq);
+    leitura = leXMLJogo(nome_arq);
+
+    preco = atoi(leitura[0:3]);
+    nomeJogo = 
 
     if(preco < 0){
         return ERROR_LEITURA;
