@@ -5,13 +5,13 @@ int enviaJogo(char nome_jogo[50], char nome_arq[55]){
     // envia a solicitação em XML para o fornecedor
     int enviar;
 
-    enviar = gravaXMLJogo(nome_jogo, nome_arq);
+    enviar = gravaXML(nome_arq, nome_jogo);
 
     if(enviar == 0){
         return SUCESS;
     } 
     else if(enviar == -1){
-        return ERROR_ARQUIVONENCONTRADO;
+        return ERROR_ARQUIVONEXISTE;
     } 
 }
 
@@ -22,7 +22,7 @@ int recebeJogo(char nome_arq[55]){
     int preco;
 
     // considerando que a leitura vai ser feita da maneira preco;jogo
-    leitura = leXMLJogo(nome_arq);
+    leitura = leXML(nome_arq);
 
     // considerando que o preco sera no formato XXX.XX
     strncpy(precoString, leitura, 6);

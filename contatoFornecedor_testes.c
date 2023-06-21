@@ -11,7 +11,7 @@ int main(void){
     printf("Iniciando testes de envio de jogo:\n");
 
     resultado = enviaJogo(nome_jogo,nome_arq1);
-    if(resultado == ERROR_ARQUIVONENCONTRADO){
+    if(resultado == ERROR_ARQUIVONEXISTE){
         printf("Retorno ERROR_ARQUIVONEXISTE OK.\n");
     } 
     else{
