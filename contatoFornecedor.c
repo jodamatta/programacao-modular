@@ -17,13 +17,20 @@ int enviaJogo(char nome_jogo[50], char nome_arq[55]){
 
 int recebeJogo(char nome_arq[55]){
     char* leitura;
-    int preco;
     char* nomeJogo;
+    char* precoString;
+    int preco;
 
+    // considerando que a leitura vai ser feita da maneira preco;jogo
     leitura = leXMLJogo(nome_arq);
 
-    preco = atoi(leitura[0:3]);
-    nomeJogo = 
+    // considerando que o preco sera no formato XXX.XX
+    strncpy(precoString, leitura, 6);
+    precoString[7] = '\0';
+    preco = atoi(precoString);
+
+    // pulando os caracteres de jogo e o ;
+    strcpy(nomeJogo,leitura + 7);
 
     if(preco < 0){
         return ERROR_LEITURA;
