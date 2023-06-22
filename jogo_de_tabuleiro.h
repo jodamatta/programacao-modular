@@ -4,8 +4,8 @@
 #include "retornos.h"
 
 typedef struct info_jogo{
-    int preco1Dia;
-    int preco7Dias;
+    float preco1Dia;
+    float preco7Dias;
     int qtd_estoque;
     int qtd_alugada1;
     int qtd_alugada7;
