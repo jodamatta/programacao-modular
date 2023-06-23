@@ -27,12 +27,11 @@ int gravaFloat(FILE* fp,float valor,char *tag){
 }
 
 int gravaConsumidor(No* lista){
-  printf("entrou");
   char* tag;
   No* aux = lista;
-  printf("oi");
   int check;
   InfoConsumidor* info =(InfoConsumidor*)malloc(sizeof(InfoConsumidor));
+  
   FILE *fp = fopen("consumidor.xml", "w");
   if (fp == NULL) {
     printf("Could not open file.\n");
@@ -41,7 +40,6 @@ int gravaConsumidor(No* lista){
   fprintf(fp,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
   
   while(aux != NULL){
-    printf("oi");
     info = aux->info;
     fprintf(fp, "<consumidor>\n");
     tag = "nome";
