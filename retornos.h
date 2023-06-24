@@ -25,6 +25,7 @@ enum{
     SUCESS_CPF,
     SUCESS_DEVOLUCAO,
     SUCESS_ALUGADO,
+    SUCESS_ESCRITA,
     SUCESS,
 };
 

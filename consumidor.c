@@ -120,6 +120,27 @@ int excluirConsumidor(char cpf[], Lista_consumidor* lista_consumidor){
     return SUCESS_DELETE;
 }
 
+int rotinaConsumidorEscritaXML(Lista_consumidor* lista_consumidor){
+    int resultado;
+    char cpf[20];
+    lista_consumidor->corrente = lista_consumidor->inicio;
+
+    if(lista_consumidor->inicio == NULL){
+        return ERROR_LISTAVAZIA;
+    }
+
+    while(0 == 0 ){
+        InfoConsumidor* aux;
+        resultado = retorna_info(lista_consumidor->corrente,&aux);
+        if (resultado == ERROR_LISTAVAZIA){
+            break;
+        }
+        resultado = percorre_lista_em_ordem(cpf,&lista_consumidor->corrente);
+        //printf("\nCPF: %s\nNome: %s\nSobrenome: %s\nCelular: %s\nEndereco: %s\n\n",cpf,aux->nome,aux->sobrenome,aux->celular,aux->endereco);
+    }
+    return SUCESS_ESCRITA;
+}
+
 void limpa_lista_consumidor(Lista_consumidor* lista_consumidor){
     libera(lista_consumidor->inicio);
     free(lista_consumidor);

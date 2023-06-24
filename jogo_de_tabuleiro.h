@@ -35,6 +35,8 @@ int atualizacaoJogoAlugado7(char codigo[], Lista_jogo* lista_jogo,float* preco);
 
 int atualizacaoJogoAlugado1(char codigo[], Lista_jogo* lista_jogo,float* preco);
 
+int rotinaJogoEscritaXML(Lista_jogo* lista_jogo);
+
 void limpa_lista_jogo(Lista_jogo* lista_jogo);
 
 #endif

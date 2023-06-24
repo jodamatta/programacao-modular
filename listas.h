@@ -1,3 +1,6 @@
+#ifndef LISTAS_H
+#define LISTAS_H
+
 #include "retornos.h"
 
 int inclui(No** lst, void* info, char identificador[]);
@@ -13,3 +16,9 @@ int atualiza(No** lst,void* info_atualizada, char identificador[]);
 int retorna_info(No* lst,void** info);
 
 int deleta(No** lst, char identificador[]);
+
+int percorre_lista_em_ordem(char* identificador, No** lst);
+
+void libera(No* lst);
+
+#endif

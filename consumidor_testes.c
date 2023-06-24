@@ -12,6 +12,18 @@ int main(void) {
     strcpy(consumidor1.celular,"94593-1320");
     strcpy(consumidor1.endereco,"Rua Cosme Velho");
 
+    InfoConsumidor consumidor2;
+    strcpy(consumidor2.nome,"Gustavo");
+    strcpy(consumidor2.sobrenome,"Arcary Passos");
+    strcpy(consumidor2.celular,"98393-3317");
+    strcpy(consumidor2.endereco,"Rua Cosme Velho, 415");
+
+    InfoConsumidor consumidor3;
+    strcpy(consumidor3.nome,"Jorge");
+    strcpy(consumidor3.sobrenome,"Alcalino Terra");
+    strcpy(consumidor3.celular,"94593-1820");
+    strcpy(consumidor3.endereco,"Rua Laranjeiras");
+
     printf("\nTestando funcao valida cpf:\n\n");
     int resultado = valida_cpf("199-293-317-74");
     if (resultado == SUCESS_CPF) {
@@ -113,6 +125,7 @@ int main(void) {
 
     printf("\nTestando funcao inclui consumidor:\n\n");
     resultado =  incluirConsumidor(lst, "199-293-317-74", consumidor1);
+    incluirConsumidor(lst, "199-223-317-74", consumidor3);
     if (resultado == SUCESS_INCLUI) {
         printf("Retorno SUCESS_INCLUI OK.\n");
     } else {
@@ -160,12 +173,7 @@ int main(void) {
     }
     printf("\nFim dos testes da funcao busca e exibe dados do jogo.\n");
     
-    printf("\nTestando funcao atualiza dados do jogo:\n\n");
-    InfoConsumidor consumidor2;
-    strcpy(consumidor2.nome,"Gustavo");
-    strcpy(consumidor2.sobrenome,"Arcary Passos");
-    strcpy(consumidor2.celular,"98393-3317");
-    strcpy(consumidor2.endereco,"Rua Cosme Velho, 415");
+    printf("\nTestando funcao atualiza dados do consumidor:\n\n");
     resultado = atualizacaoConsumidor("199-293-317-74", lst, consumidor2);
     buscarConsumidorExibe("199-293-317-74", lst);
     if (resultado == SUCESS_ATUALIZA) {
@@ -191,7 +199,22 @@ int main(void) {
     } else {
         printf("Retorno ERROR_INVALIDOCPF NOT OK.\n");
     }
-    printf("\nFim dos testes da funcao atualiza dados do jogo.\n");
+    printf("\nFim dos testes da funcao atualiza dados do consumidor.\n");
+
+    printf("\nTestando funcao grava xml:\n\n");
+    resultado = rotinaConsumidorEscritaXML(lst);
+    if (resultado == SUCESS_ESCRITA) {
+        printf("Retorno SUCESS_ESCRITA OK.\n");
+    } else {
+        printf("Retorno SUCESS_ESCRITA NOT OK.\n");
+    }
+    resultado = rotinaConsumidorEscritaXML(lst_nova);
+    if (resultado == ERROR_LISTAVAZIA) {
+        printf("Retorno ERROR_LISTAVAZIA OK.\n");
+    } else {
+        printf("Retorno ERROR_LISTAVAZIA NOT OK.\n");
+    }
+    printf("\nFim dos testes da funcao grava xml.\n");
     
     printf("\nTestando funcao deleta dados do consumidor:\n\n");
     resultado = excluirConsumidor("199-293-317-74", lst_nova);

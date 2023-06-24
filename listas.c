@@ -120,6 +120,15 @@ int deleta(No** lst, char identificador[]){
     return SUCESS_DELETE;
 }
 
+int percorre_lista_em_ordem(char* identificador, No** lst){
+    if (*lst == NULL) {
+        return ERROR_LISTAVAZIA;
+    }
+    strncpy(identificador, (*lst)->identificador, 20);
+    *lst = (*lst)->prox;
+    return SUCESS;
+}
+
 void libera(No* lst) {
     No* aux = lst;
     while( aux != NULL){

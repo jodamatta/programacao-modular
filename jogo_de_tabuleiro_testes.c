@@ -29,8 +29,8 @@ int main(void) {
 
     printf("\nTestando funcao inclui jogo:\n\n");
     int resultado = incluirJogo(lst, "Assassinos", jogo1);
-    incluirJogo(lst, "Tartarugas Ninjas IV", jogo3);
-    incluirJogo(lst, "Tartarugas Ninjas III", jogo3);
+    incluirJogo(lst, "Tartarugas Ninjas I", jogo3);
+    incluirJogo(lst, "Tartarugas Ninjas V", jogo3);
     incluirJogo(lst, "Justiceiros", jogo1);
     if (resultado == SUCESS_INCLUI) {
         printf("Retorno SUCESS_INCLUI OK.\n");
@@ -91,7 +91,7 @@ int main(void) {
 
     printf("\nTestando funcao aluga jogo 7 dias:\n\n");
     float preco;
-    resultado = atualizacaoJogoAlugado7("Tartarugas Ninjas IV", lst, &preco);
+    resultado = atualizacaoJogoAlugado7("Tartarugas Ninjas I", lst, &preco);
     if (resultado == SUCESS_ALUGADO) {
         printf("Retorno SUCESS_ALUGADO OK.\n");
     } else {
@@ -109,14 +109,14 @@ int main(void) {
     } else {
         printf("Retorno ERROR_LISTAVAZIA NOT OK.\n");
     }
-    resultado = atualizacaoJogoAlugado7("Tartarugas Ninjas IV", lst, &preco);
+    resultado = atualizacaoJogoAlugado7("Tartarugas Ninjas I", lst, &preco);
     if (resultado == ERROR_SEMESTOQUE) {
         printf("Retorno ERROR_SEMESTOQUE OK.\n");
     } else {
         printf("Retorno ERROR_SEMESTOQUE NOT OK.\n");
     }
-    atualizacaoJogoAlugado7("Tartarugas Ninjas IV", lst, &preco);
-    resultado = atualizacaoJogoAlugado7("Tartarugas Ninjas IV", lst, &preco);
+    atualizacaoJogoAlugado7("Tartarugas Ninjas I", lst, &preco);
+    resultado = atualizacaoJogoAlugado7("Tartarugas Ninjas I", lst, &preco);
     if (resultado == ERROR_SOLICITARCOMPRA) {
         printf("Retorno ERROR_SOLICITARCOMPRA OK.\n");
     } else {
@@ -125,7 +125,7 @@ int main(void) {
     printf("\nFim dos testes da funcao aluga jogo 7 dias.\n");
 
     printf("\nTestando funcao aluga jogo 1 dias:\n\n");
-    resultado = atualizacaoJogoAlugado1("Tartarugas Ninjas III", lst, &preco);
+    resultado = atualizacaoJogoAlugado1("Tartarugas Ninjas V", lst, &preco);
     if (resultado == SUCESS_ALUGADO) {
         printf("Retorno SUCESS_ALUGADO OK.\n");
     } else {
@@ -143,14 +143,14 @@ int main(void) {
     } else {
         printf("Retorno ERROR_LISTAVAZIA NOT OK.\n");
     }
-    resultado = atualizacaoJogoAlugado1("Tartarugas Ninjas III", lst, &preco);
+    resultado = atualizacaoJogoAlugado1("Tartarugas Ninjas V", lst, &preco);
     if (resultado == ERROR_SEMESTOQUE) {
         printf("Retorno ERROR_SEMESTOQUE OK.\n");
     } else {
         printf("Retorno ERROR_SEMESTOQUE NOT OK.\n");
     }
-    atualizacaoJogoAlugado1("Tartarugas Ninjas III", lst, &preco);
-    resultado = atualizacaoJogoAlugado1("Tartarugas Ninjas III", lst, &preco);
+    atualizacaoJogoAlugado1("Tartarugas Ninjas V", lst, &preco);
+    resultado = atualizacaoJogoAlugado1("Tartarugas Ninjas V", lst, &preco);
     if (resultado == ERROR_SOLICITARCOMPRA) {
         printf("Retorno ERROR_SOLICITARCOMPRA OK.\n");
     } else {
@@ -159,7 +159,7 @@ int main(void) {
     printf("\nFim dos testes da funcao aluga jogo 1 dias.\n");
     
     printf("\nTestando funcao devolve jogo alugado por 7 dias:\n\n");
-    resultado = atualizacaoJogoDevolvido7("Tartarugas Ninjas IV", lst);
+    resultado = atualizacaoJogoDevolvido7("Tartarugas Ninjas I", lst);
     if (resultado == SUCESS_DEVOLUCAO) {
         printf("Retorno SUCESS_DEVOLUCAO OK.\n");
     } else {
@@ -177,7 +177,7 @@ int main(void) {
     } else {
         printf("Retorno ERROR_LISTAVAZIA NOT OK.\n");
     }
-    resultado = atualizacaoJogoDevolvido7("Tartarugas Ninjas IV", lst);
+    resultado = atualizacaoJogoDevolvido7("Tartarugas Ninjas I", lst);
     if (resultado == ERROR_NAOALUGADO) {
         printf("Retorno ERROR_NAOALUGADO OK.\n");
     } else {
@@ -186,7 +186,7 @@ int main(void) {
     printf("\nFim dos testes da funcao devolve jogo alugado por 7 dias.\n");
 
     printf("\nTestando funcao devolve jogo alugado por 1 dias:\n\n");
-    resultado = atualizacaoJogoDevolvido1("Tartarugas Ninjas III", lst);
+    resultado = atualizacaoJogoDevolvido1("Tartarugas Ninjas V", lst);
     if (resultado == SUCESS_DEVOLUCAO) {
         printf("Retorno SUCESS_DEVOLUCAO OK.\n");
     } else {
@@ -204,13 +204,28 @@ int main(void) {
     } else {
         printf("Retorno ERROR_LISTAVAZIA NOT OK.\n");
     }
-    resultado = atualizacaoJogoDevolvido1("Tartarugas Ninjas III", lst);
+    resultado = atualizacaoJogoDevolvido1("Tartarugas Ninjas V", lst);
     if (resultado == ERROR_NAOALUGADO) {
         printf("Retorno ERROR_NAOALUGADO OK.\n");
     } else {
         printf("Retorno ERROR_NAOALUGADO NOT OK.\n");
     }
     printf("\nFim dos testes da funcao devolve jogo alugado por 1 dias.\n");
+
+    printf("\nTestando funcao grava xml:\n\n");
+    resultado = rotinaJogoEscritaXML(lst);
+    if (resultado == SUCESS_ESCRITA) {
+        printf("Retorno SUCESS_ESCRITA OK.\n");
+    } else {
+        printf("Retorno SUCESS_ESCRITA NOT OK.\n");
+    }
+    resultado = rotinaJogoEscritaXML(lst_nova);
+    if (resultado == ERROR_LISTAVAZIA) {
+        printf("Retorno ERROR_LISTAVAZIA OK.\n");
+    } else {
+        printf("Retorno ERROR_LISTAVAZIA NOT OK.\n");
+    }
+    printf("\nFim dos testes da funcao grava xml.\n");
 
     printf("\nTestando funcao deleta dados do jogo:\n\n");
     resultado = excluirJogo("Assassinos", lst_nova);

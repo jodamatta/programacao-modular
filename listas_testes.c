@@ -94,8 +94,27 @@ int main(void){
     }
     printf("\nFim dos testes da funcao atualiza.\n");
 
-    printf("\nTestando funcao deleta :\n\n");
+    printf("\nTestando funcao percorre_lista_em_ordem :\n\n");
+    No* lst_teste = lst;
+    char nome[20];
+    resultado = percorre_lista_em_ordem(nome, &lst_teste);
+    printf("%s\n",nome);
+    percorre_lista_em_ordem(nome, &lst_teste);
+    percorre_lista_em_ordem(nome,&lst_teste);
+    if (resultado == SUCESS){
+        printf("Retorno SUCESS OK.\n");
+    } else {
+        printf("Retorno SUCESS NOT OK.\n");
+    }
+    resultado = percorre_lista_em_ordem(nome, &lst_teste);
+    if (resultado == ERROR_LISTAVAZIA){
+        printf("Retorno ERROR_LISTAVAZIA OK.\n");
+    } else {
+        printf("Retorno ERROR_LISTAVAZIA NOT OK.\n");
+    }
+    printf("\nFim dos testes da funcao percorre_lista_em_ordem.\n");
 
+    printf("\nTestando funcao deleta :\n\n");
     resultado = deleta(&lst_nova,"Gustavo");
     if (resultado == ERROR_LISTAVAZIA){
         printf("Retorno ERROR_LISTAVAZIA OK.\n");

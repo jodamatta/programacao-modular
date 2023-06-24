@@ -153,6 +153,27 @@ int atualizacaoJogoAlugado1(char codigo[], Lista_jogo* lista_jogo,float* preco){
     return SUCESS_ALUGADO;
 }
 
+int rotinaJogoEscritaXML(Lista_jogo* lista_jogo){
+    int resultado;
+    char nome[20];
+    lista_jogo->corrente = lista_jogo->inicio;
+
+    if(lista_jogo->inicio == NULL){
+        return ERROR_LISTAVAZIA;
+    }
+
+    while(0 == 0 ){
+        InfoJogo* aux;
+        resultado = retorna_info(lista_jogo->corrente,&aux);
+        if (resultado == ERROR_LISTAVAZIA){
+            break;
+        }
+        resultado = percorre_lista_em_ordem(nome,&lista_jogo->corrente);
+        //printf("\n%s: \nPreco 1 dia: %.2f\nPreco 7 dias: %.2f\nQuantidade em estoque: %d\nQuantidade alugada 1 dia: %d\nQuantidade alugada 7 dias: %d\n\n", nome,aux->preco1Dia,aux->preco7Dias,aux->qtd_estoque,aux->qtd_alugada1,aux->qtd_alugada7);
+    }
+    return SUCESS_ESCRITA;
+}
+
 int excluirJogo(char codigo[], Lista_jogo* lista_jogo){
     int resultado = deleta(&lista_jogo->inicio,codigo);
     if (resultado == ERROR_LISTAVAZIA){
