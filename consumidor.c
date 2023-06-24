@@ -38,7 +38,7 @@ int valida_cpf(char cpf[]){
             return ERROR_INVALIDOCPF;
         }
     }
-    return SUCESS_CPF;
+    return SUCCESS_CPF;
 }
 
 int incluirConsumidor(Lista_consumidor* lista_consumidor, char cpf[], InfoConsumidor info) {
@@ -59,7 +59,7 @@ int incluirConsumidor(Lista_consumidor* lista_consumidor, char cpf[], InfoConsum
         free(novo_info);
         return ERROR_ITEMJAEXISTE;
     }
-    return SUCESS_INCLUI;
+    return SUCCESS_INCLUI;
 }
 
 int buscarConsumidorExibe(char cpf[],Lista_consumidor* lista_consumidor) {
@@ -79,7 +79,7 @@ int buscarConsumidorExibe(char cpf[],Lista_consumidor* lista_consumidor) {
         return ERROR_INFO;
     }
     printf("\nCPF: %s\nNome: %s\nSobrenome: %s\nCelular: %s\nEndereco: %s\n\n",cpf,aux->nome,aux->sobrenome,aux->celular,aux->endereco);
-    return SUCESS_ENCONTRADO;
+    return SUCCESS_ENCONTRADO;
 }
 
 int atualizacaoConsumidor( char cpf[], Lista_consumidor* lista_consumidor, InfoConsumidor info_nova) {
@@ -103,7 +103,7 @@ int atualizacaoConsumidor( char cpf[], Lista_consumidor* lista_consumidor, InfoC
         free(novo_info);
         return ERROR_NAOENCONTRADO;
     }
-    return SUCESS_ATUALIZA;
+    return SUCCESS_ATUALIZA;
 }
 
 int excluirConsumidor(char cpf[], Lista_consumidor* lista_consumidor){
@@ -117,7 +117,7 @@ int excluirConsumidor(char cpf[], Lista_consumidor* lista_consumidor){
     } else if (resultado == ERROR_NAOENCONTRADO){
         return ERROR_NAOENCONTRADO;
     }
-    return SUCESS_DELETE;
+    return SUCCESS_DELETE;
 }
 
 int rotinaConsumidorEscritaXML(Lista_consumidor* lista_consumidor){
@@ -138,7 +138,7 @@ int rotinaConsumidorEscritaXML(Lista_consumidor* lista_consumidor){
         resultado = percorre_lista_em_ordem(cpf,&lista_consumidor->corrente);
         //printf("\nCPF: %s\nNome: %s\nSobrenome: %s\nCelular: %s\nEndereco: %s\n\n",cpf,aux->nome,aux->sobrenome,aux->celular,aux->endereco);
     }
-    return SUCESS_ESCRITA;
+    return SUCCESS_ESCRITA;
 }
 
 void limpa_lista_consumidor(Lista_consumidor* lista_consumidor){

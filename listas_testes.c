@@ -31,7 +31,7 @@ int main(void){
     inclui(&lst, info2, identificador2);
     printf("\nTestando funcao inclui :\n\n");
     int resultado = inclui(&lst, info, identificador);
-    if(resultado == SUCESS_INCLUI){
+    if(resultado == SUCCESS_INCLUI){
         printf("Retorno SUCESS_INCLUI OK.\n");
     } else {
         printf("Retorno SUCESS_INCLUI NOT OK.\n");
@@ -60,7 +60,7 @@ int main(void){
         printf("Retorno ERROR_NAOENCONTRADO NOT OK.\n");
     }
     resultado = busca(lst, "Gustavo", &item_um);
-    if (resultado == SUCESS_ENCONTRADO){
+    if (resultado == SUCCESS_ENCONTRADO){
         printf("Retorno SUCESS_ENCONTRADO OK.\n");
     } else {
         printf("Retorno SUCESS_ENCONTRADO NOT OK.\n");
@@ -87,7 +87,7 @@ int main(void){
         printf("Retorno ERROR_NAOENCONTRADO NOT OK.\n");
     }  
     resultado = atualiza(&lst,info_nova, "Gustavo");
-    if (resultado == SUCESS_ATUALIZA){
+    if (resultado == SUCCESS_ATUALIZA){
         printf("Retorno SUCESS_ATUALIZA OK.\n");
     } else {
         printf("Retorno SUCESS_ATUALIZA NOT OK.\n");
@@ -101,7 +101,7 @@ int main(void){
     printf("%s\n",nome);
     percorre_lista_em_ordem(nome, &lst_teste);
     percorre_lista_em_ordem(nome,&lst_teste);
-    if (resultado == SUCESS){
+    if (resultado == SUCCESS){
         printf("Retorno SUCESS OK.\n");
     } else {
         printf("Retorno SUCESS NOT OK.\n");
@@ -128,13 +128,13 @@ int main(void){
         printf("Retorno ERROR_NAOENCONTRADO NOT OK.\n");
     } 
     resultado = deleta(&lst,"Felipe");
-    if (resultado == SUCESS_DELETE){
+    if (resultado == SUCCESS_DELETE){
         printf("Retorno SUCESS_DELETE OK.\n");
     } else {
         printf("Retorno SUCESS_DELETE NOT OK.\n");
     }
     resultado = deleta(&lst,"Gustavo");
-    if (resultado == SUCESS_DELETE){
+    if (resultado == SUCCESS_DELETE){
         printf("Retorno SUCESS_DELETE OK.\n");
     } else {
         printf("Retorno SUCESS_DELETE NOT OK.\n");

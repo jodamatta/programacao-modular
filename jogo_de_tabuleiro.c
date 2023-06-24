@@ -30,7 +30,7 @@ int incluirJogo(Lista_jogo* lista_jogo, char codigo[], InfoJogo info) {
         free(novo_info);
         return ERROR_ITEMJAEXISTE;
     }
-    return SUCESS_INCLUI;
+    return SUCCESS_INCLUI;
 }
 
 int buscarJogoExibe(char codigo[], Lista_jogo* lista_jogo) {
@@ -43,7 +43,7 @@ int buscarJogoExibe(char codigo[], Lista_jogo* lista_jogo) {
     InfoJogo* aux;
     resultado = retorna_info(lista_jogo->corrente,&aux);
     printf("\n%s: \nPreco 1 dia: %.2f\nPreco 7 dias: %.2f\nQuantidade em estoque: %d\nQuantidade alugada 1 dia: %d\nQuantidade alugada 7 dias: %d\n\n", codigo,aux->preco1Dia,aux->preco7Dias,aux->qtd_estoque,aux->qtd_alugada1,aux->qtd_alugada7);
-    return SUCESS_ENCONTRADO;
+    return SUCCESS_ENCONTRADO;
 }
 
 int atualizacaoJogo(char codigo[], Lista_jogo* lista_jogo, InfoJogo info_nova) {
@@ -65,7 +65,7 @@ int atualizacaoJogo(char codigo[], Lista_jogo* lista_jogo, InfoJogo info_nova) {
         free(novo_info);
         return ERROR_NAOENCONTRADO;
     }
-    return SUCESS_ATUALIZA;
+    return SUCCESS_ATUALIZA;
 }
 
 int atualizacaoJogoDevolvido7(char codigo[], Lista_jogo* lista_jogo){
@@ -82,7 +82,7 @@ int atualizacaoJogoDevolvido7(char codigo[], Lista_jogo* lista_jogo){
     }
     aux->qtd_estoque = aux->qtd_estoque + 1;
     aux->qtd_alugada7 = aux->qtd_alugada7 - 1;
-    return SUCESS_DEVOLUCAO;
+    return SUCCESS_DEVOLUCAO;
 }
 
 int atualizacaoJogoDevolvido1(char codigo[], Lista_jogo* lista_jogo){
@@ -99,7 +99,7 @@ int atualizacaoJogoDevolvido1(char codigo[], Lista_jogo* lista_jogo){
     }
     aux->qtd_estoque = aux->qtd_estoque + 1;
     aux->qtd_alugada1 = aux->qtd_alugada1 - 1;
-    return SUCESS_DEVOLUCAO;
+    return SUCCESS_DEVOLUCAO;
 }
 
 int atualizacaoJogoAlugado7(char codigo[], Lista_jogo* lista_jogo,float* preco){
@@ -123,7 +123,7 @@ int atualizacaoJogoAlugado7(char codigo[], Lista_jogo* lista_jogo,float* preco){
     aux->qtd_alugada7 = aux->qtd_alugada7 + 1;
     aux->solicitacoes = 0;
     *preco = aux->preco7Dias;
-    return SUCESS_ALUGADO;
+    return SUCCESS_ALUGADO;
 }
 
 int atualizacaoJogoAlugado1(char codigo[], Lista_jogo* lista_jogo,float* preco){
@@ -150,7 +150,7 @@ int atualizacaoJogoAlugado1(char codigo[], Lista_jogo* lista_jogo,float* preco){
     aux->qtd_alugada1 = aux->qtd_alugada1 + 1;
     aux->solicitacoes = 0;
     *preco = aux->preco1Dia;
-    return SUCESS_ALUGADO;
+    return SUCCESS_ALUGADO;
 }
 
 int rotinaJogoEscritaXML(Lista_jogo* lista_jogo){
@@ -171,7 +171,7 @@ int rotinaJogoEscritaXML(Lista_jogo* lista_jogo){
         resultado = percorre_lista_em_ordem(nome,&lista_jogo->corrente);
         //printf("\n%s: \nPreco 1 dia: %.2f\nPreco 7 dias: %.2f\nQuantidade em estoque: %d\nQuantidade alugada 1 dia: %d\nQuantidade alugada 7 dias: %d\n\n", nome,aux->preco1Dia,aux->preco7Dias,aux->qtd_estoque,aux->qtd_alugada1,aux->qtd_alugada7);
     }
-    return SUCESS_ESCRITA;
+    return SUCCESS_ESCRITA;
 }
 
 int excluirJogo(char codigo[], Lista_jogo* lista_jogo){
@@ -181,7 +181,7 @@ int excluirJogo(char codigo[], Lista_jogo* lista_jogo){
     } else if (resultado == ERROR_NAOENCONTRADO){
         return ERROR_NAOENCONTRADO;
     }
-    return SUCESS_DELETE;
+    return SUCCESS_DELETE;
 }
 
 void limpa_lista_jogo(Lista_jogo* lista_jogo){

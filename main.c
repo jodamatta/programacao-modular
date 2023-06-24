@@ -75,7 +75,7 @@ void rotinaDevolucao(Lista_jogo* lst_jogo){
         } else if(resultado == ERROR_NAOALUGADO){
             printf("O jogo em questao foi encontrado, porem nao tinha sido alugado.\n");
             break;
-        } else if(resultado == SUCESS_DEVOLUCAO){
+        } else if(resultado == SUCCESS_DEVOLUCAO){
             printf("Devolucao realizada com sucesso, para ver dados sobre o jogo devolvido digite (1) para voltar a tela inicial digite (2): ");
             scanf(" %c",&controleRotina);
             if (controleRotina == '2'){
@@ -131,7 +131,7 @@ void rotinaAluguel(Lista_jogo* lst_jogo, Lista_consumidor* lst_consumidor){
         } else if (resultado == ERROR_SOLICITARCOMPRA) {
             // função do fornecedor para solicitar jogo
             break;
-        } else if (resultado == SUCESS_ALUGADO) {
+        } else if (resultado == SUCCESS_ALUGADO) {
             // função de somar dinheiro da locadora
             printf("Aperte (1) para registrar o consumidor que realizou a compra ou qualquer outra tecla para nao registrar: ");
             scanf(" %c%*c", &controleRotina);
@@ -169,7 +169,7 @@ void rotinaAluguel(Lista_jogo* lst_jogo, Lista_consumidor* lst_consumidor){
 
                         incluirConsumidor(lst_consumidor, cidadao_cpf, consumidor);
                         break;
-                    } else if (resultado == SUCESS_ENCONTRADO) {
+                    } else if (resultado == SUCCESS_ENCONTRADO) {
                         break;
                     }
                 } else {

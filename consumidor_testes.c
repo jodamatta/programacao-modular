@@ -26,7 +26,7 @@ int main(void) {
 
     printf("\nTestando funcao valida cpf:\n\n");
     int resultado = valida_cpf("199-293-317-74");
-    if (resultado == SUCESS_CPF) {
+    if (resultado == SUCCESS_CPF) {
         printf("Retorno SUCESS_CPF OK.\n");
     } else {
         printf("Retorno SUCESS_CPF NOT OK.\n");
@@ -126,7 +126,7 @@ int main(void) {
     printf("\nTestando funcao inclui consumidor:\n\n");
     resultado =  incluirConsumidor(lst, "199-293-317-74", consumidor1);
     incluirConsumidor(lst, "199-223-317-74", consumidor3);
-    if (resultado == SUCESS_INCLUI) {
+    if (resultado == SUCCESS_INCLUI) {
         printf("Retorno SUCESS_INCLUI OK.\n");
     } else {
         printf("Retorno SUCESS_INCLUI NOT OK.\n");
@@ -147,7 +147,7 @@ int main(void) {
 
     printf("\nTestando funcao busca e exibe dados do consumidor:\n\n");
     resultado = buscarConsumidorExibe("199-293-317-74", lst);
-    if (resultado == SUCESS_ENCONTRADO) {
+    if (resultado == SUCCESS_ENCONTRADO) {
         printf("Retorno SUCESS_ENCONTRADO OK.\n");
     } else {
         printf("Retorno SUCESS_ENCONTRADO NOT OK.\n");
@@ -176,7 +176,7 @@ int main(void) {
     printf("\nTestando funcao atualiza dados do consumidor:\n\n");
     resultado = atualizacaoConsumidor("199-293-317-74", lst, consumidor2);
     buscarConsumidorExibe("199-293-317-74", lst);
-    if (resultado == SUCESS_ATUALIZA) {
+    if (resultado == SUCCESS_ATUALIZA) {
         printf("Retorno SUCESS_ATUALIZA OK.\n");
     } else {
         printf("Retorno SUCESS_ATUALIZA NOT OK.\n");
@@ -203,7 +203,7 @@ int main(void) {
 
     printf("\nTestando funcao grava xml:\n\n");
     resultado = rotinaConsumidorEscritaXML(lst);
-    if (resultado == SUCESS_ESCRITA) {
+    if (resultado == SUCCESS_ESCRITA) {
         printf("Retorno SUCESS_ESCRITA OK.\n");
     } else {
         printf("Retorno SUCESS_ESCRITA NOT OK.\n");
@@ -230,7 +230,7 @@ int main(void) {
         printf("Retorno ERROR_NAOENCONTRADO NOT OK.\n");
     }
     resultado = excluirConsumidor("199-293-317-74", lst);
-    if (resultado == SUCESS_DELETE) {
+    if (resultado == SUCCESS_DELETE) {
         printf("Retorno SUCESS_DELETE OK.\n");
     } else {
         printf("Retorno SUCESS_DELETE NOT OK.\n");

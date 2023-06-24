@@ -7,7 +7,7 @@ int gravaString(FILE* fp,char *string,char *tag){
   if(check<0){
     return ERROR_ESCRITA;
   }
-  return SUCESS;
+  return SUCCESS;
 }
 int gravaInt(FILE* fp, int valor,char *tag){
   int check;
@@ -15,7 +15,7 @@ int gravaInt(FILE* fp, int valor,char *tag){
   if(check<0){
     return ERROR_ESCRITA;
   }
-  return SUCESS;
+  return SUCCESS;
 }
 int gravaFloat(FILE* fp,float valor,char *tag){
   int check;
@@ -23,7 +23,7 @@ int gravaFloat(FILE* fp,float valor,char *tag){
   if(check<0){
     return ERROR_ESCRITA;
   }
-  return SUCESS;
+  return SUCCESS;
 }
 
 int gravaConsumidor(No* lista){

@@ -12,7 +12,7 @@ struct no {
 int inclui(No** lst, void* info, char identificador[]){
     No* buscado;
     int ja_existe = busca(*lst, identificador,&buscado);
-    if(ja_existe == SUCESS_ENCONTRADO){
+    if(ja_existe == SUCCESS_ENCONTRADO){
         //printf("Ja existe esse usuario.\n");
         return ERROR_ITEMJAEXISTE;
     }
@@ -25,7 +25,7 @@ int inclui(No** lst, void* info, char identificador[]){
     strcpy(novo_item->identificador,identificador);
     novo_item->prox = *lst; 
     *lst = novo_item;
-    return SUCESS_INCLUI;
+    return SUCCESS_INCLUI;
 }
 
 int mostra_todo_conteudo(No* lst){
@@ -38,7 +38,7 @@ int mostra_todo_conteudo(No* lst){
         printf("Item: %s\n",aux->identificador);
         aux = aux->prox;
     }
-    return SUCESS;
+    return SUCCESS;
 }
 
 int mostra_conteudo(No* lst){
@@ -49,7 +49,7 @@ int mostra_conteudo(No* lst){
     No* aux = lst;
     printf("Item: %s\n",aux->identificador);
     printf("Valor: %p\n",aux->info);
-    return SUCESS;
+    return SUCCESS;
 }
 
 int busca(No* lst, char identificador[], No** buscado){
@@ -63,7 +63,7 @@ int busca(No* lst, char identificador[], No** buscado){
     while(aux != NULL){
         if(strcmp(aux->identificador, identificador) == 0){
             *buscado = aux;
-            return SUCESS_ENCONTRADO;
+            return SUCCESS_ENCONTRADO;
         }
         aux = aux->prox;
     }
@@ -82,7 +82,7 @@ int atualiza(No** lst,void* info_atualizada, char identificador[]){
     }
     free(buscado->info);
     buscado->info = info_atualizada;
-    return SUCESS_ATUALIZA;
+    return SUCCESS_ATUALIZA;
 }
 
 int retorna_info(No* lst,void** info){
@@ -90,7 +90,7 @@ int retorna_info(No* lst,void** info){
         return ERROR_LISTAVAZIA;
     }
     *info = lst->info;
-    return SUCESS; 
+    return SUCCESS; 
 }
 
 int deleta(No** lst, char identificador[]){
@@ -106,7 +106,7 @@ int deleta(No** lst, char identificador[]){
         *lst = buscado->prox;
         free(buscado->info);
         free(buscado);
-        return SUCESS_DELETE;
+        return SUCCESS_DELETE;
     }
     while(aux != NULL){
         if(strcmp(aux->prox->identificador, identificador) == 0){
@@ -117,7 +117,7 @@ int deleta(No** lst, char identificador[]){
         }
         aux = aux->prox;
     }
-    return SUCESS_DELETE;
+    return SUCCESS_DELETE;
 }
 
 int percorre_lista_em_ordem(char* identificador, No** lst){
@@ -126,7 +126,7 @@ int percorre_lista_em_ordem(char* identificador, No** lst){
     }
     strncpy(identificador, (*lst)->identificador, 20);
     *lst = (*lst)->prox;
-    return SUCESS;
+    return SUCCESS;
 }
 
 void libera(No* lst) {
