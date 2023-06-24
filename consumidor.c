@@ -123,12 +123,13 @@ int excluirConsumidor(char cpf[], Lista_consumidor* lista_consumidor){
 int rotinaConsumidorEscritaXML(Lista_consumidor* lista_consumidor){
     int resultado;
     char cpf[20];
+    char* tag;
     lista_consumidor->corrente = lista_consumidor->inicio;
-
+    FILE *fp = fopen("consumidor.xml", "w");
     if(lista_consumidor->inicio == NULL){
         return ERROR_LISTAVAZIA;
     }
-
+    fprintf(fp,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
     while(0 == 0 ){
         InfoConsumidor* aux;
         resultado = retorna_info(lista_consumidor->corrente,&aux);
@@ -136,11 +137,22 @@ int rotinaConsumidorEscritaXML(Lista_consumidor* lista_consumidor){
             break;
         }
         resultado = percorre_lista_em_ordem(cpf,&lista_consumidor->corrente);
-        //printf("\nCPF: %s\nNome: %s\nSobrenome: %s\nCelular: %s\nEndereco: %s\n\n",cpf,aux->nome,aux->sobrenome,aux->celular,aux->endereco);
+        fprintf(fp, "<consumidor>\n");
+        tag = "nome";
+        gravaString(fp,aux->nome,tag);
+        tag = "sobrenome";
+        gravaString(fp,aux->sobrenome,tag);
+        tag = "celular";
+        gravaString(fp,aux->celular,tag);
+        tag = "endereco";
+        gravaString(fp,aux->endereco,tag);
+        tag = "cpf";
+        gravaString(fp, cpf,tag);
+        fprintf(fp, "</consumidor>\n");
+        printf("\nCPF: %s\nNome: %s\nSobrenome: %s\nCelular: %s\nEndereco: %s\n\n",cpf,aux->nome,aux->sobrenome,aux->celular,aux->endereco);
     }
     return SUCCESS_ESCRITA;
 }
-
 void limpa_lista_consumidor(Lista_consumidor* lista_consumidor){
     libera(lista_consumidor->inicio);
     free(lista_consumidor);
