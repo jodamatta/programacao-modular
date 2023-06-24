@@ -1,10 +1,11 @@
 #include "listas.h"
-//#include "xml.h"
+#include "xml.h"
 
-int avaliaCompra(float preco, char nome_arq[55]){
+int avaliaCompra(float preco){
     float saldo;
     float diferenca;
-    saldo = leXML(nome_arq);
+    
+    //saldo = leXML("saldo.xml");
 
     if(saldo < 0){
         return ERROR_LEITURA;
@@ -16,17 +17,18 @@ int avaliaCompra(float preco, char nome_arq[55]){
             return ERROR_COMPRA;
         } 
         else {
-            return SUCESS;
+            return SUCCESS;
         }
     }
 }
 
-int atualizaSaldo(float valor, char nome_arq[55]){
+int atualizaSaldo(float valor){
     float saldo;
     int novoSaldo;
     int resultado;
+    FILE* saldoXML;
 
-    saldo = leXML(nome_arq);
+    // ler o saldo da file saldo.xml
 
     novoSaldo = saldo + valor;
 
@@ -34,10 +36,10 @@ int atualizaSaldo(float valor, char nome_arq[55]){
         return ERROR_SALDONEG;
     }
 
-    resultado = gravaXML(nome_arq, novoSaldo);
+    resultado = gravaFloat(saldoXML, novoSaldo, "saldo");
 
-    if(resultado == SUCESS){
-        return SUCESS;
+    if(resultado == SUCCESS){
+        return SUCCESS;
     }
     else {
         return ERROR_ESCRITA;
