@@ -126,6 +126,10 @@ int rotinaConsumidorEscritaXML(Lista_consumidor* lista_consumidor){
     char* tag;
     lista_consumidor->corrente = lista_consumidor->inicio;
     FILE *fp = fopen("consumidor.xml", "w");
+    if (fp == NULL) {
+      printf("Could not open file.\n");
+      return ERROR_ARQUIVONEXISTE;
+    }
     if(lista_consumidor->inicio == NULL){
         return ERROR_LISTAVAZIA;
     }
