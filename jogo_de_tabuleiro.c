@@ -157,11 +157,17 @@ int rotinaJogoEscritaXML(Lista_jogo* lista_jogo){
     int resultado;
     char nome[20];
     lista_jogo->corrente = lista_jogo->inicio;
-
+    char *tag;
+    float copy;
     if(lista_jogo->inicio == NULL){
         return ERROR_LISTAVAZIA;
     }
-
+    FILE *fp = fopen("jogos.xml", "w");
+    if (fp == NULL) {
+      printf("Could not open file.\n");
+      return ERROR_ARQUIVONEXISTE;
+    }
+    fprintf(fp,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
     while(0 == 0 ){
         InfoJogo* aux;
         resultado = retorna_info(lista_jogo->corrente,&aux);
@@ -169,19 +175,26 @@ int rotinaJogoEscritaXML(Lista_jogo* lista_jogo){
             break;
         }
         resultado = percorre_lista_em_ordem(nome,&lista_jogo->corrente);
-        //printf("\n%s: \nPreco 1 dia: %.2f\nPreco 7 dias: %.2f\nQuantidade em estoque: %d\nQuantidade alugada 1 dia: %d\nQuantidade alugada 7 dias: %d\n\n", nome,aux->preco1Dia,aux->preco7Dias,aux->qtd_estoque,aux->qtd_alugada1,aux->qtd_alugada7);
+        fprintf(fp, "<jogo>\n");
+        tag = "nome";
+        gravaString(fp,nome,tag);
+        tag = "preco1Dia";
+        printf("%f",aux->preco1Dia);
+        gravaFloat(fp,copy,tag);
+        tag = "preco7Dias";
+        gravaFloat(fp,aux->preco7Dias,tag);
+        tag = "estoque";
+        gravaInt(fp,aux->qtd_estoque,tag);
+        tag = "qtdAlugada1";
+        gravaInt(fp, aux->qtd_alugada1,tag);
+        tag = "qtdAlugada7";
+        gravaInt(fp, aux->qtd_alugada7,tag);
+        tag = "solicitacoes";
+        gravaInt(fp,aux->solicitacoes,tag);
+        fprintf(fp, "</jogo>\n");
+        printf("\n%s: \nPreco 1 dia: %.2f\nPreco 7 dias: %.2f\nQuantidade em estoque: %d\nQuantidade alugada 1 dia: %d\nQuantidade alugada 7 dias: %d\n\n", nome,aux->preco1Dia,aux->preco7Dias,aux->qtd_estoque,aux->qtd_alugada1,aux->qtd_alugada7);
     }
     return SUCCESS_ESCRITA;
-}
-
-int excluirJogo(char codigo[], Lista_jogo* lista_jogo){
-    int resultado = deleta(&lista_jogo->inicio,codigo);
-    if (resultado == ERROR_LISTAVAZIA){
-        return ERROR_LISTAVAZIA;
-    } else if (resultado == ERROR_NAOENCONTRADO){
-        return ERROR_NAOENCONTRADO;
-    }
-    return SUCCESS_DELETE;
 }
 
 void limpa_lista_jogo(Lista_jogo* lista_jogo){
