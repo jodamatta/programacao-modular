@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "dinheiro.h"
-#include "retornos.h"
+//#include "retornos.h"
 
 //int avaliaCompra(int preco, char nome_arq[55])
 //int atualizaSaldo(int valor, char nome_arq[55])

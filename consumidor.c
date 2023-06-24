@@ -119,3 +119,8 @@ int excluirConsumidor(char cpf[], Lista_consumidor* lista_consumidor){
     }
     return SUCESS_DELETE;
 }
+
+void limpa_lista_consumidor(Lista_consumidor* lista_consumidor){
+    libera(lista_consumidor->inicio);
+    free(lista_consumidor);
+}
