@@ -153,6 +153,47 @@ int atualizacaoJogoAlugado1(char codigo[], Lista_jogo* lista_jogo,float* preco){
     return SUCCESS_ALUGADO;
 }
 
+int lerXMLJogo(Lista_jogo *lista){
+  InfoJogo dados;
+  char linha[100];
+  char *aux;
+  char nome[100];
+  FILE *fp = fopen("jogos.xml", "r");
+  if (fp == NULL) {
+    printf("Could not open file.\n");
+    return ERROR_ARQUIVONEXISTE;
+  }
+  while (fgets(linha, sizeof(linha), fp)) {
+    aux = strstr(linha, "<jogo>");
+    if (aux != NULL) {
+      lerDado(fp,linha,8);
+      strcpy(nome,linha);
+      
+      lerDado(fp,linha,13);
+      dados.preco1Dia = atof(linha);
+      
+      lerDado(fp,linha,14);
+      dados.preco7Dias = atof(linha);
+      
+      lerDado(fp,linha,11);
+      dados.qtd_estoque = atoi(linha);
+      
+      lerDado(fp,linha,15);
+      dados.qtd_alugada1 = atoi(linha);
+
+      lerDado(fp,linha,15);
+      dados.qtd_alugada7 = atoi(linha);
+
+      lerDado(fp,linha,16);
+      
+      dados.solicitacoes = atoi(linha);
+      
+      incluirJogo(lista,nome,dados);
+    }
+  }
+  return SUCCESS_LEITURA;
+}
+
 int rotinaJogoEscritaXML(Lista_jogo* lista_jogo){
     int resultado;
     char nome[20];
