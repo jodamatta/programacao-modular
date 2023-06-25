@@ -120,6 +120,39 @@ int excluirConsumidor(char cpf[], Lista_consumidor* lista_consumidor){
     return SUCCESS_DELETE;
 }
 
+int lerXMLConsumidor(Lista_consumidor *lista){
+  InfoConsumidor dados;
+  char linha[100];
+  char *aux;
+  char cpf[100];
+  FILE *fp = fopen("consumidor.xml", "r");
+  if (fp == NULL) {
+    printf("Could not open file.\n");
+    return ERROR_ARQUIVONEXISTE;
+  }
+  while (fgets(linha, sizeof(linha), fp)) {
+    aux = strstr(linha, "<consumidor>");
+    if (aux != NULL) {
+      lerDado(fp,linha,8);
+      strcpy(dados.nome,linha);
+      
+      lerDado(fp,linha,13);
+      strcpy(dados.sobrenome, linha);
+      
+      lerDado(fp,linha,11);
+      strcpy(dados.celular,linha);
+      
+      lerDado(fp,linha,12);
+      strcpy(dados.endereco,linha);
+      
+      lerDado(fp,linha,7);
+      strcpy(cpf,linha);
+      
+      incluirConsumidor(lista,cpf,dados);
+    }
+  }
+  return SUCCESS_LEITURA;
+}
 int rotinaConsumidorEscritaXML(Lista_consumidor* lista_consumidor){
     int resultado;
     char cpf[20];
