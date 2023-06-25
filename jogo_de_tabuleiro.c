@@ -191,6 +191,7 @@ int lerXMLJogo(Lista_jogo *lista){
       incluirJogo(lista,nome,dados);
     }
   }
+  fclose(fp);
   return SUCCESS_LEITURA;
 }
 
@@ -235,6 +236,7 @@ int rotinaJogoEscritaXML(Lista_jogo* lista_jogo){
         fprintf(fp, "</jogo>\n");
         //printf("\n%s: \nPreco 1 dia: %.2f\nPreco 7 dias: %.2f\nQuantidade em estoque: %d\nQuantidade alugada 1 dia: %d\nQuantidade alugada 7 dias: %d\n\n", nome,aux->preco1Dia,aux->preco7Dias,aux->qtd_estoque,aux->qtd_alugada1,aux->qtd_alugada7);
     }
+    fclose(fp);
     return SUCCESS_ESCRITA;
 }
 
