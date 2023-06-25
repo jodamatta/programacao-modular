@@ -151,6 +151,7 @@ int lerXMLConsumidor(Lista_consumidor *lista){
       incluirConsumidor(lista,cpf,dados);
     }
   }
+  fclose(fp);
   return SUCCESS_LEITURA;
 }
 int rotinaConsumidorEscritaXML(Lista_consumidor* lista_consumidor){
@@ -188,6 +189,7 @@ int rotinaConsumidorEscritaXML(Lista_consumidor* lista_consumidor){
         fprintf(fp, "</consumidor>\n");
         printf("\nCPF: %s\nNome: %s\nSobrenome: %s\nCelular: %s\nEndereco: %s\n\n",cpf,aux->nome,aux->sobrenome,aux->celular,aux->endereco);
     }
+    fclose(fp);
     return SUCCESS_ESCRITA;
 }
 void limpa_lista_consumidor(Lista_consumidor* lista_consumidor){
