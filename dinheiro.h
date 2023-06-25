@@ -5,4 +5,6 @@ int avaliaCompra(int preco);
 
 int atualizaSaldo(int valor);
 
+int lerXMLDinheiro(float* saldo);
+
 #endif
