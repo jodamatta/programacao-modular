@@ -1,5 +1,12 @@
 #include "xml.h"
 
+int lerDado(FILE* fp,char* dado,int tam_tag){
+  char linha[100];
+  fgets(linha,sizeof(linha),fp);
+  linha[strlen(linha)-tam_tag]='\0';
+  strcpy(dado,linha+tam_tag);
+  return SUCESS_LEITURA;
+}
 
 int gravaString(FILE* fp,char *string,char *tag){
   int check;
