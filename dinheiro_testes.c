@@ -11,16 +11,9 @@ int main(void){
     preco = 70;
     resultado = avaliaCompra(preco);
 
-    /* ainda nao sei se vai ter um caso pra erro de leitura
-        de qualquer jeito ja deixo aqui 
     if(resultado == ERROR_LEITURA){
-        printf("Retorno ERROR_LEITURA OK.\n");
-    } else {
-        printf("Retorno ERROR_LEITURA NOT OK.\n");
-    }*/
-
-    resultado = avaliaCompra(preco);
-
+        printf("Houve um erro na leitura do arquivo.\n");
+    }
     if(resultado == SUCCESS){
         printf("Retorno SUCESS OK.\n");
     } else {
@@ -30,6 +23,9 @@ int main(void){
     preco = 999.99;
     resultado = avaliaCompra(preco);
 
+    if(resultado == ERROR_LEITURA){
+        printf("Houve um erro na leitura do arquivo.\n");
+    }
     if(resultado == ERROR_COMPRA){
         printf("Retorno ERROR_COMPRA OK.\n");
     } else {
@@ -50,12 +46,13 @@ int main(void){
 
     preco = 10;
     resultado = atualizaSaldo(preco);
+
+    if(resultado == ERROR_ESCRITA){
+        printf("Houve um erro na escrita do arquivo.\n");
+    }
     if(resultado == SUCCESS){
         printf("Retorno SUCESS OK\n");
     } else {
         printf("Retorno SUCESS NOT OK.\n");
     }
-
-    // nao sei como testar o retorno de erro de leitura ainda
-
 }
