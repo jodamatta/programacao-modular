@@ -27,6 +27,8 @@ int atualizacaoConsumidor( char cpf[], Lista_consumidor* lista_consumidor, InfoC
 
 int excluirConsumidor(char cpf[], Lista_consumidor* lista_consumidor);
 
+int lerXMLConsumidor(Lista_consumidor *lista);
+
 int rotinaConsumidorEscritaXML(Lista_consumidor* lista_consumidor);
 
 void limpa_lista_consumidor(Lista_consumidor* lista_consumidor);
