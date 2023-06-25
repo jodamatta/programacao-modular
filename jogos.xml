@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jogo>
+  <nome>Monopolis</nome>
+  <preco1Dia>10.000000</preco1Dia>
+  <preco7Dias>17.500000</preco7Dias>
+  <estoque>0</estoque>
+  <qtdAlugada1>1</qtdAlugada1>
+  <qtdAlugada7>1</qtdAlugada7>
+  <solicitacoes>3</solicitacoes>
+</jogo>
+<jogo>
+  <nome>Tartarugas IV</nome>
+  <preco1Dia>12.000000</preco1Dia>
+  <preco7Dias>25.000000</preco7Dias>
+  <estoque>2</estoque>
+  <qtdAlugada1>0</qtdAlugada1>
+  <qtdAlugada7>0</qtdAlugada7>
+  <solicitacoes>0</solicitacoes>
+</jogo>
+<jogo>
+  <nome>Jogos Vorazes</nome>
+  <preco1Dia>13.000000</preco1Dia>
+  <preco7Dias>35.000000</preco7Dias>
+  <estoque>0</estoque>
+  <qtdAlugada1>1</qtdAlugada1>
+  <qtdAlugada7>1</qtdAlugada7>
+  <solicitacoes>0</solicitacoes>
+</jogo>
+<jogo>
+  <nome>Tartarugas III</nome>
+  <preco1Dia>11.500000</preco1Dia>
+  <preco7Dias>35.750000</preco7Dias>
+  <estoque>2</estoque>
+  <qtdAlugada1>0</qtdAlugada1>
+  <qtdAlugada7>0</qtdAlugada7>
+  <solicitacoes>0</solicitacoes>
+</jogo>

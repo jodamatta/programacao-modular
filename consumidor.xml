@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<consumidor>
+  <nome>Gustavo</nome>
+  <sobrenome>Arcary Passos</sobrenome>
+  <celular>98730-2133</celular>
+  <endereco>Rua Cosme Velho</endereco>
+  <cpf>192-933-175-74</cpf>
+</consumidor>
+<consumidor>
+  <nome>Jonas</nome>
+  <sobrenome>Brothers</sobrenome>
+  <celular>97777-6663</celular>
+  <endereco>Rua Laranjeiras</endereco>
+  <cpf>192-973-357-66</cpf>
+</consumidor>

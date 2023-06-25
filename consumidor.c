@@ -3,6 +3,7 @@
 #include <string.h>
 #include "consumidor.h"
 #include "listas.h"
+#include "xml.h"
 
 Lista_consumidor* cria_lista_consumidor(){
     Lista_consumidor* lista_consumidor = (Lista_consumidor*) malloc(sizeof(Lista_consumidor));
@@ -154,6 +155,7 @@ int lerXMLConsumidor(Lista_consumidor *lista){
   fclose(fp);
   return SUCCESS_LEITURA;
 }
+
 int rotinaConsumidorEscritaXML(Lista_consumidor* lista_consumidor){
     int resultado;
     char cpf[20];
@@ -187,11 +189,12 @@ int rotinaConsumidorEscritaXML(Lista_consumidor* lista_consumidor){
         tag = "cpf";
         gravaString(fp, cpf,tag);
         fprintf(fp, "</consumidor>\n");
-        printf("\nCPF: %s\nNome: %s\nSobrenome: %s\nCelular: %s\nEndereco: %s\n\n",cpf,aux->nome,aux->sobrenome,aux->celular,aux->endereco);
+        //printf("\nCPF: %s\nNome: %s\nSobrenome: %s\nCelular: %s\nEndereco: %s\n\n",cpf,aux->nome,aux->sobrenome,aux->celular,aux->endereco);
     }
     fclose(fp);
     return SUCCESS_ESCRITA;
 }
+
 void limpa_lista_consumidor(Lista_consumidor* lista_consumidor){
     libera(lista_consumidor->inicio);
     free(lista_consumidor);

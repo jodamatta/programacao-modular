@@ -1,6 +1,6 @@
-#include "listas.h"
 #include "xml.h"
 #include "dinheiro.h"
+
 int avaliaCompra(float preco){
     float saldo;
     float* ptrSaldo = &saldo;
@@ -18,7 +18,7 @@ int avaliaCompra(float preco){
             return ERROR_COMPRA;
         } 
         else {
-            return SUCESS;
+            return SUCCESS;
         }
     }
 }
@@ -42,8 +42,8 @@ int atualizaSaldo(float valor){
     resultado = gravaFloat(saldoXML, novoSaldo, "saldo");
     fprintf(saldoXML, "</dinheiro>\n");
     fclose(saldoXML);
-    if(resultado == SUCESS){
-        return SUCESS;
+    if(resultado == SUCCESS){
+        return SUCCESS;
     }
     else {
         return ERROR_ESCRITA;
@@ -64,7 +64,7 @@ int lerXMLDinheiro(float* saldo){
       lerDado(fp,linha,9);
       *saldo = atof(linha);
       fclose(fp);
-      return SUCESS_LEITURA;
+      return SUCCESS_LEITURA;
     }
   }
   fclose(fp);

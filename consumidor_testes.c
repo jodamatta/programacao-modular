@@ -27,9 +27,9 @@ int main(void) {
     printf("\nTestando funcao valida cpf:\n\n");
     int resultado = valida_cpf("199-293-317-74");
     if (resultado == SUCCESS_CPF) {
-        printf("Retorno SUCESS_CPF OK.\n");
+        printf("Retorno SUCCESS_CPF OK.\n");
     } else {
-        printf("Retorno SUCESS_CPF NOT OK.\n");
+        printf("Retorno SUCCESS_CPF NOT OK.\n");
     }
     resultado = valida_cpf("a99-293-317-74");
     if (resultado == ERROR_INVALIDOCPF) {
@@ -127,9 +127,9 @@ int main(void) {
     resultado =  incluirConsumidor(lst, "199-293-317-74", consumidor1);
     incluirConsumidor(lst, "199-223-317-74", consumidor3);
     if (resultado == SUCCESS_INCLUI) {
-        printf("Retorno SUCESS_INCLUI OK.\n");
+        printf("Retorno SUCCESS_INCLUI OK.\n");
     } else {
-        printf("Retorno SUCESS_INCLUI NOT OK.\n");
+        printf("Retorno SUCCESS_INCLUI NOT OK.\n");
     }
     resultado = incluirConsumidor(lst, "199-293-317-74", consumidor1);
     if (resultado == ERROR_ITEMJAEXISTE) {
@@ -148,9 +148,9 @@ int main(void) {
     printf("\nTestando funcao busca e exibe dados do consumidor:\n\n");
     resultado = buscarConsumidorExibe("199-293-317-74", lst);
     if (resultado == SUCCESS_ENCONTRADO) {
-        printf("Retorno SUCESS_ENCONTRADO OK.\n");
+        printf("Retorno SUCCESS_ENCONTRADO OK.\n");
     } else {
-        printf("Retorno SUCESS_ENCONTRADO NOT OK.\n");
+        printf("Retorno SUCCESS_ENCONTRADO NOT OK.\n");
     }
     resultado = buscarConsumidorExibe("192-993-317-78", lst);
     if (resultado == ERROR_NAOENCONTRADO) {
@@ -177,9 +177,9 @@ int main(void) {
     resultado = atualizacaoConsumidor("199-293-317-74", lst, consumidor2);
     buscarConsumidorExibe("199-293-317-74", lst);
     if (resultado == SUCCESS_ATUALIZA) {
-        printf("Retorno SUCESS_ATUALIZA OK.\n");
+        printf("Retorno SUCCESS_ATUALIZA OK.\n");
     } else {
-        printf("Retorno SUCESS_ATUALIZA NOT OK.\n");
+        printf("Retorno SUCCESS_ATUALIZA NOT OK.\n");
     }
     resultado = atualizacaoConsumidor("199-293-317-74", lst_nova, consumidor2);
     if (resultado == ERROR_LISTAVAZIA) {
@@ -204,9 +204,9 @@ int main(void) {
     printf("\nTestando funcao grava xml:\n\n");
     resultado = rotinaConsumidorEscritaXML(lst);
     if (resultado == SUCCESS_ESCRITA) {
-        printf("Retorno SUCESS_ESCRITA OK.\n");
+        printf("Retorno SUCCESS_ESCRITA OK.\n");
     } else {
-        printf("Retorno SUCESS_ESCRITA NOT OK.\n");
+        printf("Retorno SUCCESS_ESCRITA NOT OK.\n");
     }
     resultado = rotinaConsumidorEscritaXML(lst_nova);
     if (resultado == ERROR_LISTAVAZIA) {
@@ -231,9 +231,9 @@ int main(void) {
     }
     resultado = excluirConsumidor("199-293-317-74", lst);
     if (resultado == SUCCESS_DELETE) {
-        printf("Retorno SUCESS_DELETE OK.\n");
+        printf("Retorno SUCCESS_DELETE OK.\n");
     } else {
-        printf("Retorno SUCESS_DELETE NOT OK.\n");
+        printf("Retorno SUCCESS_DELETE NOT OK.\n");
     }
     resultado = excluirConsumidor("1r2-9g3-317-74", lst);
     if (resultado == ERROR_INVALIDOCPF) {

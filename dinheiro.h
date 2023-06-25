@@ -1,9 +1,9 @@
 #ifndef DINHEIRO_H
 #define DINHEIRO_H
 
-int avaliaCompra(int preco);
+int avaliaCompra(float preco);
 
-int atualizaSaldo(int valor);
+int atualizaSaldo(float valor);
 
 int lerXMLDinheiro(float* saldo);
 

@@ -3,7 +3,7 @@
 #include <string.h>
 #include "jogo_de_tabuleiro.h"
 #include "consumidor.h"
-//#include "dinheiro.h"
+#include "dinheiro.h"
 
 void rotinaDevolucao(Lista_jogo* lst_jogo);
 void rotinaAluguel(Lista_jogo* lst_jogo, Lista_consumidor* lst_consumidor);
@@ -14,14 +14,20 @@ int main(void) {
     // definicao das variaveis
     Lista_jogo* lst_jogo = cria_lista_jogo();
     Lista_consumidor* lst_consumidor = cria_lista_consumidor();
-
+    float saldo;
+    int resultado;
     // fazer leitura do xml relacionada com o dinheiro
+    resultado = lerXMLDinheiro(&saldo);
+    if(resultado == ERROR_ARQUIVONEXISTE){
+        saldo = 0;
+    }
     // fazer leitura do xml dos consumidores
+    lerXMLConsumidor(lst_consumidor);
     // fazer leitura do xml dos jogos de tabuleiros
+    lerXMLJogo(lst_jogo);
     // verificar atualizacao nas solicitacoes de compras de jogos
 
     // loop de rotinas
-
     while( 0 == 0 ){
         char controleRotina;
         printf("\n\n");
@@ -46,9 +52,13 @@ int main(void) {
 
     
     // salva em xml dados da lista de jogo
+    rotinaJogoEscritaXML(lst_jogo);
     // salva em xml dados da lista de consumidores
+    rotinaConsumidorEscritaXML(lst_consumidor);
     // libera memoria de lista de jogo
+    limpa_lista_jogo(lst_jogo);
     // libera memoria de lista de consumidor
+    limpa_lista_consumidor(lst_consumidor);
     return 0;
 }
 
@@ -76,7 +86,7 @@ void rotinaDevolucao(Lista_jogo* lst_jogo){
             printf("O jogo em questao foi encontrado, porem nao tinha sido alugado.\n");
             break;
         } else if(resultado == SUCCESS_DEVOLUCAO){
-            printf("Devolucao realizada com sucesso, para ver dados sobre o jogo devolvido digite (1) para voltar a tela inicial digite (2): ");
+            printf("Devolucao realizada com SUCCESSo, para ver dados sobre o jogo devolvido digite (1) para voltar a tela inicial digite (2): ");
             scanf(" %c",&controleRotina);
             if (controleRotina == '2'){
                 break;
@@ -133,6 +143,7 @@ void rotinaAluguel(Lista_jogo* lst_jogo, Lista_consumidor* lst_consumidor){
             break;
         } else if (resultado == SUCCESS_ALUGADO) {
             // função de somar dinheiro da locadora
+            atualizaSaldo(valor);
             printf("Aperte (1) para registrar o consumidor que realizou a compra ou qualquer outra tecla para nao registrar: ");
             scanf(" %c%*c", &controleRotina);
 

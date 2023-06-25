@@ -3,6 +3,7 @@
 #include <string.h>
 #include "jogo_de_tabuleiro.h"
 #include "listas.h"
+#include "xml.h"
 
 Lista_jogo* cria_lista_jogo() {
     Lista_jogo* lista_jogo = (Lista_jogo*) malloc(sizeof(Lista_jogo));
@@ -221,8 +222,10 @@ int rotinaJogoEscritaXML(Lista_jogo* lista_jogo){
         tag = "nome";
         gravaString(fp,nome,tag);
         tag = "preco1Dia";
-        printf("%f",aux->preco1Dia);
-        gravaFloat(fp,copy,tag);
+        //printf("%f",aux->preco1Dia);
+        aux->qtd_estoque = aux->qtd_estoque + aux->qtd_alugada1;
+        aux->qtd_alugada1 = aux->qtd_alugada1 - aux->qtd_alugada1;
+        gravaFloat(fp,aux->preco1Dia,tag);
         tag = "preco7Dias";
         gravaFloat(fp,aux->preco7Dias,tag);
         tag = "estoque";

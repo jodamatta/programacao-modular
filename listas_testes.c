@@ -32,9 +32,9 @@ int main(void){
     printf("\nTestando funcao inclui :\n\n");
     int resultado = inclui(&lst, info, identificador);
     if(resultado == SUCCESS_INCLUI){
-        printf("Retorno SUCESS_INCLUI OK.\n");
+        printf("Retorno SUCCESS_INCLUI OK.\n");
     } else {
-        printf("Retorno SUCESS_INCLUI NOT OK.\n");
+        printf("Retorno SUCCESS_INCLUI NOT OK.\n");
     }
     resultado = inclui(&lst, info, identificador);
     if(resultado == ERROR_ITEMJAEXISTE){
@@ -61,9 +61,9 @@ int main(void){
     }
     resultado = busca(lst, "Gustavo", &item_um);
     if (resultado == SUCCESS_ENCONTRADO){
-        printf("Retorno SUCESS_ENCONTRADO OK.\n");
+        printf("Retorno SUCCESS_ENCONTRADO OK.\n");
     } else {
-        printf("Retorno SUCESS_ENCONTRADO NOT OK.\n");
+        printf("Retorno SUCCESS_ENCONTRADO NOT OK.\n");
     }
     printf("\nFim dos testes da funcao busca.\n");
 
@@ -88,9 +88,9 @@ int main(void){
     }  
     resultado = atualiza(&lst,info_nova, "Gustavo");
     if (resultado == SUCCESS_ATUALIZA){
-        printf("Retorno SUCESS_ATUALIZA OK.\n");
+        printf("Retorno SUCCESS_ATUALIZA OK.\n");
     } else {
-        printf("Retorno SUCESS_ATUALIZA NOT OK.\n");
+        printf("Retorno SUCCESS_ATUALIZA NOT OK.\n");
     }
     printf("\nFim dos testes da funcao atualiza.\n");
 
@@ -102,9 +102,9 @@ int main(void){
     percorre_lista_em_ordem(nome, &lst_teste);
     percorre_lista_em_ordem(nome,&lst_teste);
     if (resultado == SUCCESS){
-        printf("Retorno SUCESS OK.\n");
+        printf("Retorno SUCCESS OK.\n");
     } else {
-        printf("Retorno SUCESS NOT OK.\n");
+        printf("Retorno SUCCESS NOT OK.\n");
     }
     resultado = percorre_lista_em_ordem(nome, &lst_teste);
     if (resultado == ERROR_LISTAVAZIA){
@@ -129,15 +129,15 @@ int main(void){
     } 
     resultado = deleta(&lst,"Felipe");
     if (resultado == SUCCESS_DELETE){
-        printf("Retorno SUCESS_DELETE OK.\n");
+        printf("Retorno SUCCESS_DELETE OK.\n");
     } else {
-        printf("Retorno SUCESS_DELETE NOT OK.\n");
+        printf("Retorno SUCCESS_DELETE NOT OK.\n");
     }
     resultado = deleta(&lst,"Gustavo");
     if (resultado == SUCCESS_DELETE){
-        printf("Retorno SUCESS_DELETE OK.\n");
+        printf("Retorno SUCCESS_DELETE OK.\n");
     } else {
-        printf("Retorno SUCESS_DELETE NOT OK.\n");
+        printf("Retorno SUCCESS_DELETE NOT OK.\n");
     }   
     printf("\nFim dos testes da funcao deleta.\n");
 
