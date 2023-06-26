@@ -23,15 +23,22 @@ int avaliaCompra(float preco){
     }
 }
 
-int atualizaSaldo(float valor){
+int atualizaSaldo(float valor,int modo){// 0 para soma e 1 para subtração
     float saldo;
     float* ptrSaldo = &saldo;
     float novoSaldo;
     int resultado;
 
     lerXMLDinheiro(ptrSaldo);
-
-    novoSaldo = saldo + valor;
+    if(modo == 0){
+      novoSaldo = saldo + valor;
+    }
+    else if(modo == 1){
+      novoSaldo = saldo - valor;
+    }
+    else{
+      return ERROR_MODOINVALIDO;
+    }
 
 
     if(novoSaldo < 0){
