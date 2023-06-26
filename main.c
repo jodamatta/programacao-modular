@@ -143,7 +143,7 @@ void rotinaAluguel(Lista_jogo* lst_jogo, Lista_consumidor* lst_consumidor){
             break;
         } else if (resultado == SUCCESS_ALUGADO) {
             // função de somar dinheiro da locadora
-            atualizaSaldo(valor);
+            atualizaSaldo(valor,0);
             printf("Aperte (1) para registrar o consumidor que realizou a compra ou qualquer outra tecla para nao registrar: ");
             scanf(" %c%*c", &controleRotina);
 
