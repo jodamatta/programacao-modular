@@ -26,7 +26,7 @@ int main(void) {
     // fazer leitura do xml dos jogos de tabuleiros
     lerXMLJogo(lst_jogo);
     // verificar atualizacao nas solicitacoes de compras de jogos
-
+    lerFornecedor(lst_jogo);
     // loop de rotinas
     while( 0 == 0 ){
         char controleRotina;
