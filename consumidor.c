@@ -134,19 +134,19 @@ int lerXMLConsumidor(Lista_consumidor *lista){
   while (fgets(linha, sizeof(linha), fp)) {
     aux = strstr(linha, "<consumidor>");
     if (aux != NULL) {
-      lerDado(fp,linha,8);
+      lerDado(fp,linha,8,8);
       strcpy(dados.nome,linha);
       
-      lerDado(fp,linha,13);
+      lerDado(fp,linha,13,13);
       strcpy(dados.sobrenome, linha);
       
-      lerDado(fp,linha,11);
+      lerDado(fp,linha,11,11);
       strcpy(dados.celular,linha);
       
-      lerDado(fp,linha,12);
+      lerDado(fp,linha,12,12);
       strcpy(dados.endereco,linha);
       
-      lerDado(fp,linha,7);
+      lerDado(fp,linha,7,7);
       strcpy(cpf,linha);
       
       incluirConsumidor(lista,cpf,dados);
