@@ -141,6 +141,7 @@ void rotinaAluguel(Lista_jogo* lst_jogo, Lista_consumidor* lst_consumidor){
             break;
         } else if (resultado == ERROR_SOLICITARCOMPRA) {
             // função do fornecedor para solicitar jogo
+            envia_jogo(nome_jogo,3);
             break;
         } else if (resultado == SUCCESS_ALUGADO) {
             // função de somar dinheiro da locadora
