@@ -61,7 +61,7 @@ int lerXMLDinheiro(float* saldo){
   while (fgets(linha, sizeof(linha), fp)) {
     aux = strstr(linha, "<dinheiro>");
     if (aux != NULL) {
-      lerDado(fp,linha,9);
+      lerDado(fp,linha,9,9);
       *saldo = atof(linha);
       fclose(fp);
       return SUCCESS_LEITURA;
