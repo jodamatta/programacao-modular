@@ -65,6 +65,7 @@ int lerFornecedor(Lista_jogo* lista){
         }
         resultado = retorna_info(lista->corrente,&infonova);
         infonova->qtd_estoque += qtd;
+        info->solicitacoes = 0;
         atualizacaoJogo(nome,lista,*infonova);
       } 
     }
