@@ -4,7 +4,7 @@
 #include "jogo_de_tabuleiro.h"
 #include "consumidor.h"
 #include "dinheiro.h"
-#include "contato_fornecedor.h
+#include "contato_fornecedor.h"
 
 void rotinaDevolucao(Lista_jogo* lst_jogo);
 void rotinaAluguel(Lista_jogo* lst_jogo, Lista_consumidor* lst_consumidor);
