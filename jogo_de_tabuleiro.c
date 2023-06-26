@@ -167,25 +167,25 @@ int lerXMLJogo(Lista_jogo *lista){
   while (fgets(linha, sizeof(linha), fp)) {
     aux = strstr(linha, "<jogo>");
     if (aux != NULL) {
-      lerDado(fp,linha,8);
+      lerDado(fp,linha,8,8);
       strcpy(nome,linha);
       
-      lerDado(fp,linha,13);
+      lerDado(fp,linha,13,13);
       dados.preco1Dia = atof(linha);
       
-      lerDado(fp,linha,14);
+      lerDado(fp,linha,14,14);
       dados.preco7Dias = atof(linha);
       
-      lerDado(fp,linha,11);
+      lerDado(fp,linha,11,11);
       dados.qtd_estoque = atoi(linha);
       
-      lerDado(fp,linha,15);
+      lerDado(fp,linha,15,15);
       dados.qtd_alugada1 = atoi(linha);
 
-      lerDado(fp,linha,15);
+      lerDado(fp,linha,15,15);
       dados.qtd_alugada7 = atoi(linha);
 
-      lerDado(fp,linha,16);
+      lerDado(fp,linha,16,16);
       
       dados.solicitacoes = atoi(linha);
       
