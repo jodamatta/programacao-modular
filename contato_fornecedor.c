@@ -5,8 +5,7 @@
 
 int envia_jogo(char* nome_jogo, int qtd){
     int resultado;
-    FILE *fp = fopen("solicitacao.xml", "w");
-    fprintf(fp,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+    FILE *fp = fopen("solicitacao.xml", "a");
     fprintf(fp,"<solicitacao>\n");
     // gravar nome do jogo
     resultado = gravaString(fp, nome_jogo, "nome");
